@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Project1
 {
-    class BaseObject
+    public class BaseObject
     {
         public int ID { get; set; }
         private readonly List<Component> _components;
@@ -55,6 +55,20 @@ namespace Project1
             {
                 component.Draw(spriteBatch);
             }
+        }
+
+        public void Initialize()
+        {
+            if (_components == null)
+                return;
+            _components.ForEach(c => c.Initialize());
+        }
+
+        public void Uninitialize()
+        {
+            if (_components == null)
+                return;
+            _components.ForEach(c => c.Uninitalize());
         }
 
     }

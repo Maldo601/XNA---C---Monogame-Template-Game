@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Project1
 {
-    abstract class Component
+    public abstract class Component
     {
         private BaseObject _baseObject;
         public abstract ComponentType ComponentType { get; }
@@ -27,10 +27,14 @@ namespace Project1
 
         public TComponentType GetComponent<TComponentType>(ComponentType componentType) where TComponentType : Component
         {
-            return _baseObject.GetComponent<TComponentType>(componentType);
+            return _baseObject == null ? null : _baseObject.GetComponent<TComponentType>(componentType);
         }
 
         public abstract void Update(double gameTime);
         public abstract void Draw(SpriteBatch spritebatch);
+
+        public virtual void Initialize() { }
+
+        public virtual void Uninitalize() { }
     }
 }

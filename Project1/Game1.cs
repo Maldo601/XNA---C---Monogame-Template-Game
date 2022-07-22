@@ -23,16 +23,19 @@ namespace Project1
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            // TODO: Logica de Instancia
 
             base.Initialize();
         }
 
+        // TODO: Arreglar mides en sprites definitius
+
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            _player.AddComponent(new Sprite(Content.Load<Texture2D>("LinkTransparent"), 26, 26, new Vector2(50, 50)));
+            _player.AddComponent(new Sprite(Content.Load<Texture2D>("link_full"), 146, 146, new Vector2(50, 50)));
             _player.AddComponent(new PlayerInput());
+            _player.AddComponent(new Animation(160, 162)); // ANCHO - LARGO
 
         }
 
@@ -56,4 +59,4 @@ namespace Project1
             base.Draw(gameTime);
         }
     }
-}
+}  

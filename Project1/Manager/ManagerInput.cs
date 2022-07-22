@@ -64,10 +64,17 @@ namespace Project1.Manager
                 }
             }
 
+            CheckKeyState(Keys.A, Input.Left);  
+            CheckKeyState(Keys.D, Input.Right); 
+            CheckKeyState(Keys.W, Input.Up);    
+            CheckKeyState(Keys.S, Input.Down);
+
+            /**
             CheckKeyState(Keys.Left, Input.Left);
             CheckKeyState(Keys.Right, Input.Right);
             CheckKeyState(Keys.Up, Input.Up);
             CheckKeyState(Keys.Down, Input.Down);
+            */
 
             _lastKeyState = _keyState;
 
