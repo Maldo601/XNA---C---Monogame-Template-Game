@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using Microsoft.Xna.Framework.Input;
 
 namespace Project1.Components
 {
@@ -21,6 +21,7 @@ namespace Project1.Components
 
         public State CurrentState { get; private set; }
         private State _currentState;
+        private KeyboardState _keyState;
         private int _width;
         private int _height;
         private double _counter;
@@ -88,8 +89,15 @@ namespace Project1.Components
                 
             }
             
+
+        int _counter = 0;
+            
+            if(! _keyState.IsKeyDown(Keys.None))
+            {
+                _animationIndex = _animationIndex == 0 ? _animationIndex = _counter + 1 : _counter = 0;
+    
+            }
           
-            _animationIndex = _animationIndex == 0 ? 1 : 0;
             //_currentState = State.Standing;
             
         }

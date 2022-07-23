@@ -33,9 +33,9 @@ namespace Project1
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            _player.AddComponent(new Sprite(Content.Load<Texture2D>("link_full"), 146, 146, new Vector2(50, 50)));
+            _player.AddComponent(new Sprite(Content.Load<Texture2D>("Sprite 1"), 66, 66, new Vector2(50, 50)));
             _player.AddComponent(new PlayerInput());
-            _player.AddComponent(new Animation(160, 162)); // ANCHO - LARGO
+            _player.AddComponent(new Animation(39, 48)); // ANCHO - LARGO
 
         }
 
