@@ -50,7 +50,7 @@ namespace Project1.Components
             {
                 case State.Walking:
                     _counter += gameTime;
-                    if (_counter > 150)
+                    if (_counter > 200)
                     {
                         ChangeState();
                         _counter = 0;
@@ -61,11 +61,12 @@ namespace Project1.Components
 
         public void ResetCounter(State state, Direction direction)
         {
-            if(state != _currentState)
+            if (_currentDirection != direction)
             {
                 _counter = 1000;
                 _animationIndex = 0;
             }
+ 
             _currentState = state;
             _currentDirection = direction;
         }
@@ -86,19 +87,28 @@ namespace Project1.Components
                 case Direction.Right:
                     TextureRectangle = new Rectangle(_width * _animationIndex, _height*3, _width, _height);
                     break;
-                
             }
             
 
-        int _counter = 0;
-            
-            if(! _keyState.IsKeyDown(Keys.None))
+
+                //_animationIndex = _animationIndex == 0 ? 1 : 0;
+            if(_animationIndex == 0)
             {
-                _animationIndex = _animationIndex == 0 ? _animationIndex = _counter + 1 : _counter = 0;
-    
+                _animationIndex = 1;
+            
             }
-          
-            //_currentState = State.Standing;
+            else if(_animationIndex == 1)
+            {
+                _animationIndex = 2;
+             
+            }
+            else if(_animationIndex == 2)
+            {
+                _animationIndex = 0;
+        
+            }
+                
+            _currentState = State.Standing;
             
         }
     }

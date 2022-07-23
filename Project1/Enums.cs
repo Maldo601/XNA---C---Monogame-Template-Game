@@ -29,7 +29,8 @@ public enum Direction
     Left,
     Right,
     Up,
-    Down
+    Down,
+    None
 }
 
 public enum State

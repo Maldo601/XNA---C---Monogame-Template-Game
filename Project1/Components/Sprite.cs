@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-
+using Microsoft.Xna.Framework.Input;
 
 namespace Project1.Components
 {
@@ -13,6 +12,9 @@ namespace Project1.Components
     {
 
         private Texture2D _texture;
+        private KeyboardState _keyState;
+        private KeyboardState _lastKeyState;
+        private Keys _lastKey;
         private int _width;
         private int _height;
         private Vector2 _position;
@@ -64,24 +66,31 @@ namespace Project1.Components
 
             var animation = GetComponent<Animation>(ComponentType.Animation);
 
-            if (animation == null) return;
+            if (animation == null)
+            {
+                return;
+            }
+            else
+            {
+                if (x > 0)
+                {
+                    animation.ResetCounter(State.Walking, Direction.Right);
+                }
+                else if (x < 0)
+                {
+                    animation.ResetCounter(State.Walking, Direction.Left);
+                }
+                else if (y > 0)
+                {
+                    animation.ResetCounter(State.Walking, Direction.Down);
+                }
+                else if (y < 0)
+                {
+                    animation.ResetCounter(State.Walking, Direction.Up);
+                }
+            }
 
-            if(x > 0 )
-            {
-                animation.ResetCounter(State.Walking, Direction.Right);
-            }
-            else if (x < 0 )
-            {
-                animation.ResetCounter(State.Walking, Direction.Left);
-            }
-            else if(y > 0 )
-            {
-                animation.ResetCounter(State.Walking, Direction.Down);
-            }
-            else if(y < 0)
-            {
-                animation.ResetCounter(State.Walking, Direction.Up);
-            }
+          
         }
     }
 }
