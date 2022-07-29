@@ -23,12 +23,8 @@ namespace Project1
 
         protected override void Initialize()
         {
-            // TODO: Logica de Instancia
-
             base.Initialize();
         }
-
-        // TODO: Arreglar mides en sprites definitius
 
         protected override void LoadContent()
         {
