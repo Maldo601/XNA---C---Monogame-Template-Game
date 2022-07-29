@@ -34,7 +34,6 @@ namespace Project1.Manager
             ThrottleInput = false;
             LockMovement = false;
             _counter = 0;
-
         }
 
         public void Update(double gameTime)
@@ -71,13 +70,6 @@ namespace Project1.Manager
             CheckKeyState(Keys.W, Input.Up);    
             CheckKeyState(Keys.S, Input.Down);
             CheckKeyState(Keys.None, Input.None);
-
-            /**
-            CheckKeyState(Keys.Left, Input.Left);
-            CheckKeyState(Keys.Right, Input.Right);
-            CheckKeyState(Keys.Up, Input.Up);
-            CheckKeyState(Keys.Down, Input.Down);
-            */
 
             _lastKeyState = _keyState;
 
