@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+
 
 namespace Project1.Components
 {
@@ -21,7 +21,6 @@ namespace Project1.Components
 
         public State CurrentState { get; private set; }
         private State _currentState;
-        private KeyboardState _keyState;
         private int _width;
         private int _height;
         private double _counter;
@@ -50,7 +49,7 @@ namespace Project1.Components
             {
                 case State.Walking:
                     _counter += gameTime;
-                    if (_counter > 200)
+                    if (_counter > 150)
                     {
                         ChangeState();
                         _counter = 0;
@@ -61,12 +60,11 @@ namespace Project1.Components
 
         public void ResetCounter(State state, Direction direction)
         {
-            if (_currentDirection != direction)
+            if(state != _currentState)
             {
                 _counter = 1000;
                 _animationIndex = 0;
             }
- 
             _currentState = state;
             _currentDirection = direction;
         }
@@ -87,28 +85,12 @@ namespace Project1.Components
                 case Direction.Right:
                     TextureRectangle = new Rectangle(_width * _animationIndex, _height*3, _width, _height);
                     break;
-            }
-            
-
-
-                //_animationIndex = _animationIndex == 0 ? 1 : 0;
-            if(_animationIndex == 0)
-            {
-                _animationIndex = 1;
-            
-            }
-            else if(_animationIndex == 1)
-            {
-                _animationIndex = 2;
-             
-            }
-            else if(_animationIndex == 2)
-            {
-                _animationIndex = 0;
-        
-            }
                 
-            _currentState = State.Standing;
+            }
+            
+          
+            _animationIndex = _animationIndex == 0 ? 1 : 0;
+            //_currentState = State.Standing;
             
         }
     }

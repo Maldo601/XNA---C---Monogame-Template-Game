@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Input;
+using Project1.Components;
 using Project1.MyEventArgs;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace Project1.Manager
         private Keys _lastKey;
 
         private static event EventHandler<NewInputEventArgs> _FireNewInput;
+        private static event EventHandler<NewInputEventArgs> _FireNoInput;
         private double _counter;
         private static double _cooldown;
 
@@ -68,6 +70,7 @@ namespace Project1.Manager
             CheckKeyState(Keys.D, Input.Right); 
             CheckKeyState(Keys.W, Input.Up);    
             CheckKeyState(Keys.S, Input.Down);
+            CheckKeyState(Keys.None, Input.None);
 
             /**
             CheckKeyState(Keys.Left, Input.Left);

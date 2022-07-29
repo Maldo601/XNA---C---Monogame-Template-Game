@@ -39,8 +39,14 @@ namespace Project1.Components
                 case Input.Right:
                     sprite.Move(1.5f, 0);
                     break;
+                case Input.None:
+                    sprite.Move(0f, 0);
+                    break;
+          
+        
             }
         }
+
         public override void Draw(SpriteBatch spritebatch)
         {
     

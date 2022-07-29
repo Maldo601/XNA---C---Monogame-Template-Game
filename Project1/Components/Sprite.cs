@@ -87,6 +87,10 @@ namespace Project1.Components
                 else if (y < 0)
                 {
                     animation.ResetCounter(State.Walking, Direction.Up);
+                } 
+                else if (x == 0 || y == 0)
+                {
+                    animation.ResetCounter(State.Standing, Direction.None);
                 }
             }
 
