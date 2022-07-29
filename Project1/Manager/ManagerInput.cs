@@ -14,7 +14,6 @@ namespace Project1.Manager
         private Keys _lastKey;
 
         private static event EventHandler<NewInputEventArgs> _FireNewInput;
-        private static event EventHandler<NewInputEventArgs> _FireNoInput;
         private double _counter;
         private static double _cooldown;
 
